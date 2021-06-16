@@ -32,7 +32,10 @@ url = "/posts/"
 [params]
 title = "Roman Böhm"
 author = "Roman Böhm"
-description = "Father, husband, AC/DC listener, software developer at Flyeralarm. Some of it professionally."
+description = """
+Father, husband, AC/DC listener, software developer at Flyeralarm. 
+Some of it professionally.
+"""
 profilePicture = "images/profile.jpg"
 customCss = ["css/custom.css"]
 
