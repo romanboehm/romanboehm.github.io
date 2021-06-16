@@ -1,0 +1,9 @@
+.sidebar .logo-title {
+    text-align: center;
+    padding-top: 40px;
+    flex: 1;
+}
+
+:root {
+    --content-ratio: 0.8;
+}
