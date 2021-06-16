@@ -78,6 +78,6 @@ Those are the steps needed to make it work:
     ```
     This will make your page available under the _www_ subdomain, too.
 
-### Conclusion
+# Conclusion
 That's the whole thing. You should verify your site is available under the desired apex, _www_, and _github.io_ (sub-) domains. Don't forget to update your config.toml to make use of the new base URL if you have any settings referencing the URL there.
 
