@@ -1,0 +1,53 @@
+baseURL = "https://www.romanboehm.com"
+languageCode = "en"
+DefaultContentLanguage = "en"
+theme = "anatole"
+summarylength = 15
+enableEmoji = true
+enableRobotsTXT = true
+
+# Enable Disqus
+#disqusShortname = ""
+
+# Google Analytics
+#googleAnalytics = "UA-123-45"
+
+# Syntax highlighting
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
+[menu]
+[[menu.main]]
+name = "Home"
+identifier = "home"
+weight = 100
+url = "/"
+[[menu.main]]
+name = "Posts"
+weight = 200
+identifier = "posts"
+url = "/posts/"
+
+[params]
+title = "Roman Böhm's Site"
+author = "Roman Böhm"
+description = "Father, husband, AC/DC listener, software developer at Flyeralarm. Some of it professionally."
+profilePicture = "images/profile.jpg"
+
+[[params.socialIcons]]
+icon = "fab fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/rmnbhm"
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/%F0%9F%96%A5%EF%B8%8F-roman-b%C3%B6hm-837946175/"
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/rmnbhm"
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:contact@romanboehm.com"
