@@ -28,6 +28,16 @@ name = "Posts"
 weight = 200
 identifier = "posts"
 url = "/posts/"
+[[menu.main]]
+name = "TIL"
+weight = 300
+identifier = "til"
+url = "/tags/til"
+
+[taxonomies]
+    category = "categories"
+    series = "series"
+    tag = "tags"
 
 [params]
 title = "Roman Böhm"

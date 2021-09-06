@@ -1,8 +1,13 @@
----
-title: "Meta Militia, or: Using a Custom Domain with GitHub Pages"
-date: 2021-06-16T13:24:43+02:00
-draft: false
----
++++
+title = "Meta Militia, or: Using a Custom Domain with GitHub Pages"
+date = 2021-06-16
+tags = [
+    "dns",
+    "blogmeta"
+]
+draft = false
++++
+
 How to: Using a custom domain (apex domain and _www_ subdomain) for a Hugo-generated page hosted on GitHub Pages.
 
 # Introduction
