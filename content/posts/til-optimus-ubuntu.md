@@ -1,6 +1,6 @@
 +++
 title = "Ubuntu and Nvidia Optimus"
-date = "2019-03-10"
+date = "2021-09-06"
 tags = [
     "til",
     "linux"
