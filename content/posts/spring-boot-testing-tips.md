@@ -56,7 +56,7 @@ Rather reset your state (e.g. database) manually through `@AfterEach`/`@AfterCla
 Therefore I'd also suggest to ...
 
 # Use @SpringBootTest religiously
-Even though it may seem counter-intuitive at first, using `@SpringBootTest` "by default" provides a lot of advantages in my opinion:
+Even though it may seem counter-intuitive at first, try using `@SpringBootTest` "by default". My rule of thumb is: for any unit test where you need to nest your mocks. This provides a lot of advantages in my opinion:
 
 1) It makes tests cleaner. An `@Autowired` is most often much shorter than `new ABean(new BBean(MyConfigurationFromSomeWhere()))`.
 2) It's not only cleaner, but the beans in your tests will be set up the same as in your production environment. There's fewer surprises later on in case the way you manually set up your beans, or your mocks does not reflect your production system anymore.
