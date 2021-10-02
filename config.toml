@@ -15,7 +15,7 @@ enableRobotsTXT = true
 # Syntax highlighting
 pygmentsUseClasses = true
 pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+pygmentsCodefencesGuessSyntax = false
 
 [menu]
 [[menu.main]]
