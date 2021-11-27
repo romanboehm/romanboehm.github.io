@@ -8,6 +8,7 @@ tags = [
 draft = false
 +++
 
+# Introduction
 Spring Boot is great and the best thing about it is how easy it makes it to test your application. So here are some selected tips for writing tests with Spring Boot. The most recent stable Spring Boot version at the time of publishing was 2.5.5.
 
 # Keep Configuration Close to the Tests
