@@ -157,6 +157,7 @@ And who raked all the whitespace to themselves?
 journald [trims trailing whitespace](https://github.com/systemd/systemd/issues/98), which actually can be a quite sensible thing to do. And it operates on a per-line-basis, also sensible in that context. Those two decisions do _not_, however, get along with multiline log messages whose first line ends in a trailing space.
 
 That means Filebeat saw the multiline log message like so:
+
 | Line       | Message                                                              |
 |------------|----------------------------------------------------------------------|
 | 1          | `[2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}]// <-- No Trailey McSpaceFace before "//" because journald trimmed it`|
@@ -170,7 +171,7 @@ It then went on to assemble those according to its multiline pattern, basically 
 This was because the space it removed was, due to the absence of an actual msg, not any irrelevant superfluous whitespace at the end of the log message, after the _msg_. It removed the _semantical_ space that differentiates the last piece of meta information (`[{id,12345}}]`) from the msg itself! Not a problem in the 99% of cases where we have neither an empty msg nor a multiline message, nor both -- which made the bug appear only now, after such a long time of the app running smoothly.
 
 ## The Fix
-I am absolutely not blaming journald here. It's expected, and documented (!) behavior. Also, the systemd stack receives enough unjustified hate already. We only have ourselves to blame. (Note the convenient shift from "I" to "we." ( ˘ ͜ʖ ˘))
+I am absolutely not blaming journald here. It's expected, and documented (!) behavior. Also, the systemd stack receives enough unjustified hate already. We only have ourselves to blame. (Note the convenient shift from "I" to "we", hehe.)
 
 One potential fix could have been to reconfigure journald or to get rid of it entirely. This did not seem like time well invested. So instead we went by what is considered best practice by the authors of slf4j, another champion of Java logging, and [just included a meaningful message with the logged exception](https://www.slf4j.org/faq.html#exception_message) instead of the useless `e.getMessage()`. Of course we also checked for other occurrences of this anti-pattern.
 
