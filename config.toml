@@ -52,7 +52,7 @@ customCss = ["css/custom.css"]
 [[params.socialIcons]]
 icon = "fab fa-twitter"
 title = "Twitter"
-url = "https://twitter.com/rmnbhm"
+url = "https://twitter.com/0xromanboehm"
 [[params.socialIcons]]
 icon = "fab fa-linkedin"
 title = "Linkedin"
