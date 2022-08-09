@@ -12,20 +12,20 @@ draft = false
 # Introduction
 At my previous work we had this problem where we couldn't run through our entire workflow in our integration system because we were missing the necessary input data to some central service's integration instance. We therefore took it upon us to provide said data by asynchronously _mirroring_ data from prod to int.
 
-This is definitely not a "Five tips on how to deal with numbers in JavaScript -- NaN will shock you!" or "The best Spring annotations of 2021" kind of post. There aren't going to be any checklists, best practices, or tips on anything. I just wanted to write down an elegant solution to a mildly interesting problem.
+This is definitely not a "Five tips on how to deal with numbers in JavaScript -- NaN will shock you!" or "The best Spring annotations of 2021" kind of post. There aren't going to be any checklists, best practices, or tips on anything. I just wanted to write down a somewhat elegant solution to a mildly interesting problem.
 
 # The Problem
-We had a service dedicated to source product data from an end-of-life system, let's call it _Legacy Service_ for simplicity's sake. We triggered the service, let's call it _Legacy Accumulator_, or _Accumulator_ if product data was missing certain pieces of information. You can regard _Accumulator_ as some sort of bridge: It brought the data up to the standard we required later on in our context.
+We had a service dedicated to source product data from an end-of-life system. Let's call them _Legacy Accumulator_, or _Accumulator_, and _Legacy Service_, respectively. We triggered _Accumulator_ if product data was missing certain pieces of information. You can regard it as some sort of bridge: It brought the data up to the standard we required later on in our context.
 
 Seems unfortunate enough already, but here's the catch:
 
-* _Accumulator_ had a production instances querying the production _Legacy Service_.
+* _Accumulator_ had a production instance querying _Legacy Service_'s production instance.
 * _Legacy Service_ did not provide an integration instance of itself. (As is tradition ...)
-* Our integration services handled the same product data as our production services.
-* Our integration system should _not_, however, at any stage query _Legacy Service_'s production instance. We had no business interfering with production systems for our testing needs. We also actually din't _want_ to query _Legacy Service_ twice because that cost quite a bit of time.
+* Our integration system generally handled copies of production's product data.
+* Our integration system should _not_, however, at any stage query _Legacy Service_'s production instance. We had no business interfering with production systems for our testing needs. We also actually didn't want to query _Legacy Service_ twice because that cost quite a bit of time.
 
 # The Solution
-Our solution was providing data to integration storage by means of **asynchronously mirroring the `save` (to storage) calls on production to integration**. Hacky, but it had a few upsides:
+Our solution was to provide data to integration storage by means of **asynchronously mirroring the "save to storage" calls on production to integration**. Hacky, but it had a few upsides:
 
 1) It barely taxed our production instance of _Accumulator_, and there was no extra load on _Legacy Service_. Spring picked an idle thread from the pool and gave it a bit of I/O work to handle. 
 2) Using Spring, and building upon a well-designed codebase by my former team, the extra functionality was quite easy to add. Moreover, it would then be quick to get rid of or deactivate. Everything hinged upon two corresponding extra properties being set at application startup, which we could provide through environment variables passed along to the Docker container.
