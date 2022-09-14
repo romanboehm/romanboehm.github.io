@@ -4,7 +4,7 @@ ARG VARIANT=1-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 
 # Install hugo
-RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.101.0/hugo_0.101.0_Linux-ARM64.deb
+RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.102.3/hugo_0.102.3_Linux-ARM64.deb
 RUN ls -laH
 RUN dpkg -i hugo.deb
 
