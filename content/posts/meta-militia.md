@@ -6,14 +6,17 @@ tags = [
     "blogmeta"
 ]
 draft = false
+toc = true
 +++
 
 How to: Using a custom domain (apex domain and _www_ subdomain) for a Hugo-generated page hosted on GitHub Pages.
 
-# Introduction
+## Introduction
+
 What better first post than a meta post detailing the experience of getting my page running under my own domain in the first place. On the _true developer_-scale probably right below writing your own custom static site generator (in Rust or Kotlin, of course). If you're too cheap for the all-inclusive Wordpress experience, too vain to just use the _\<username\>.github.io_ domain, or too lazy to read the actual (very decent docs), this one's for you!
 
-# Body
+## Body
+
 Hint: The instructions assume you already have your domain registered and a Hugo page lying around on your disk somewhere. In my examples, I will describe the setup with the domains _(www.) romanboehm.com_ and _rmnbhm.github.io_. If you want to follow along, exchange those with your own domain and your desired additional _.github.io_ domain.
 
 Those are the steps needed to make it work:
@@ -84,6 +87,7 @@ Those are the steps needed to make it work:
 9. Make sure the domain provided through the _CNAME_ file appears under the _Custom domain_ section. In my case that's _romanboehm.com_
 
 
-# Conclusion
+## Conclusion
+
 That's the whole thing. You should verify your site is available under the desired apex, _www_, and _github.io_ (sub-) domains. Don't forget to update your config.toml to make use of the new base URL if you have any settings referencing the URL there.
 

@@ -3,22 +3,25 @@ title = "How to: Configure Multiple DataSources in Spring Boot"
 date = "2022-08-16"
 tags = [
     "spring-boot",
+    "spring",
     "hikari"
 ]
 draft = false
+toc = true
 +++
 
 
-# Introduction
+## Introduction
+
 A few days ago a colleague of mine and I wanted to know "[w]hat’s the Spring Boot way of defining three different DataSources through externalized config (application.yaml), with each sharing the same Hikari settings?" That is: We basically had a working solution, we just weren't sure it was how you'd do it making use of all the goodness Spring Boot offers. Therefore I consequently tried [offloading the task of figuring it out to Twitter](https://twitter.com/0xromanboehm/status/1557374298536525825?s=20&t=09VLy1imZC-GJ5BtLaH7Cw). -.-
 
 And ... it worked! Thanks to [Michael Simons' hint](https://twitter.com/rotnroll666/status/1557377897693945856?s=20&t=09VLy1imZC-GJ5BtLaH7Cw), and the always excellent [docs.spring.io resource](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-access.configure-two-datasources) we knew we were right on track. We just had to [iron out some wrinkles](https://twitter.com/dreadwarrior/status/1557407059922112514?s=20&t=09VLy1imZC-GJ5BtLaH7Cw).
 
-# Solutions
+## Solutions
 
 I created a demo to figure out and validate the solutions. You can find it on [GitHub](https://github.com/romanboehm/multiple-datasources).
 
-## Validation
+### Validation
 
 Last things first, this is the test that any solution would have to pass:
 
@@ -92,11 +95,11 @@ class MultipleDatasourcesApplicationTests {
 
 You can see it checks for general ability to use the `DataSource` instances and their individual configuration. Here, both the values from the shared "base" config as well as individual settings, represented by the `poolName` property, are being asserted on. 
 
-## Solution A: Making use of `HikariConfig`
+### Solution A: Making use of `HikariConfig`
 
 We can frame this as the "programmatic" solution because it relies on certain configuration classes exposed through Hikari's API.
 
-### Externalized Configuration
+#### Externalized Configuration
 
 ```
 # file: application-prog.yaml
@@ -117,7 +120,7 @@ datasources:
     poolName: "two"
 ```
 
-### `@Configuration` class
+#### `@Configuration` class
 
 ```
 @Profile("prog")
@@ -170,11 +173,11 @@ Note:
 - `HikariConfig` binds to `jdbcUrl`, not `url`.
 - We cannot skip step 2 and use `@ConfigurationProperties("datasources-datasource-...")` in the `HikariDataSource` factory methods directly: When instantiating the data source with `new HikariDataSource(hikariConfig)` we'd need the url. The url, however, will only be set _after_ the instance exists.
 
-## Solution B I: Using YAML anchors
+### Solution B I: Using YAML anchors
 
 This is one of the two solutions based on [YAML anchors](https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/), so it'll work only if the externalized configuration is a .yaml properties file.
 
-### Externalized Configuration
+#### Externalized Configuration
 
 ```
 # file: application-yaml-simple.yaml
@@ -197,7 +200,7 @@ datasources:
     poolName: "two"
 ```
 
-### `@Configuration` class
+#### `@Configuration` class
 
 ```
 @Profile("yaml-simple")
@@ -239,11 +242,11 @@ Like with the aforementioned solution, let's walk through this one, too:
 1. Bind the `datasources.datasource-...`-prefixed blocks via `@ConfigurationProperties` to `HikariConfig` instances, the latter being more or less a bean intended for mapping data source-related configuration onto it with some additional helper methods for constructing a `DataSource`.
 2. Use the the `HikariConfig` of every declared data source section to create the actual `HikariDataSource` from it.
 
-## Solution B II: Using YAML anchors
+### Solution B II: Using YAML anchors
 
 This is the other solution based on YAML anchors. It comes with a different properties structure, but essentially works the same.
 
-### Externalized Configuration
+#### Externalized Configuration
 
 ```
 # file: application-yaml-structured.yaml
@@ -268,7 +271,7 @@ datasources:
       poolName: "two"
 ```
 
-### `@Configuration` class
+#### `@Configuration` class
 
 ```
 @Profile("yaml-structured")

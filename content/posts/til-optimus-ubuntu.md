@@ -2,7 +2,7 @@
 title = "Ubuntu and Nvidia Optimus"
 date = "2021-09-06"
 tags = [
-    "til",
+    "TIL",
     "linux"
 ]
 draft = false
