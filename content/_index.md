@@ -2,7 +2,7 @@
 title: Home
 ---
 
-[<img src="/images/profile.jpg" style="max-width:15%;min-width:40px;float:right;border-radius:50%;" alt="Profile picture" />](https://github.com/yihui/hugo-xmin)
+[<img src="/images/profile.jpg" style="max-width:15%;min-width:40px;float:right;border-radius:50%;" alt="Profile picture" />](/images/profile.jpg)
 
 # ROMAN BÖHM
 
