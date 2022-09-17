@@ -24,7 +24,7 @@ menu:
 
 params:
   description: "Website of Roman Böhm"
-  footer: "&copy; Roman Böhm 2021 -- {Year} // [Github](https://github.com/romanboehm) // [Twitter](https://twitter.com/0xromanboehm)"
+  footer: "&copy; Roman Böhm 2021 -- {Year} // [Github](https://github.com/romanboehm) // [Twitter](https://twitter.com/0xromanboehm) // [LinkedIn](https://www.linkedin.com/in/🖥%EF%B8%8F-roman-böhm-837946175/)"
 
 markup:
   highlight:
