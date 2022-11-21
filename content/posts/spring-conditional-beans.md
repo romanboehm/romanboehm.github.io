@@ -3,6 +3,7 @@ title = "Tell Me Your Environment and I Tell You What Your Context Is"
 date = "2022-08-06"
 tags = [
     "spring",
+    "spring-boot"
     "testing",
     "dependencyinjection"
 ]
