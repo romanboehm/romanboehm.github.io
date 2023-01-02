@@ -1,11 +1,10 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/go/.devcontainer/base.Dockerfile
 # [Choice] Go version (use -bullseye variants on local arm64/Apple Silicon): 1, 1.16, 1.17, 1-bullseye, 1.16-bullseye, 1.17-bullseye, 1-buster, 1.16-buster, 1.17-buster
 ARG VARIANT=1-bullseye
-FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
+FROM --platform=linux/amd64 mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 
 # Install hugo
-RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.102.3/hugo_0.102.3_Linux-ARM64.deb
-RUN ls -laH
+RUN wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.109.0/hugo_0.109.0_linux-amd64.deb
 RUN dpkg -i hugo.deb
 
 # [Optional] Uncomment this section to install additional OS packages.
