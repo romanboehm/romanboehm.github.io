@@ -13,10 +13,6 @@
 	},
 	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 
-	// Make private key(s) from host available to SSH agent, so we have sufficient permissions for GitHub.
-	// Cf. https://github.com/microsoft/vscode-remote-release/issues/4024#issuecomment-867841795
-	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
-
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"go.toolsManagement.checkForUpdates": "local",
