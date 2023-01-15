@@ -13,6 +13,11 @@
 	},
 	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 
+	// Make private key for GitHub available to ssh-agent, which then gets passed through to container.
+	// There doesn't seem to be a way to persist key imports to `ssh-agent` between reboots on MacOS, unfortunately, so this dance is required. 
+	// Cf. https://github.com/microsoft/vscode-remote-release/issues/4024#issuecomment-867841795
+	"initializeCommand": "ssh-add ~/.ssh/id-github-ed25519",
+
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"go.toolsManagement.checkForUpdates": "local",
