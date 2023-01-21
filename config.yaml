@@ -29,6 +29,3 @@ params:
 markup:
   highlight:
     codeFences: false
-  goldmark:
-    renderer:
-      unsafe: true
