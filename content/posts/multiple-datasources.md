@@ -25,7 +25,7 @@ I created a demo to figure out and validate the solutions. You can find it on [G
 
 Last things first, this is the test that any solution would have to pass:
 
-```
+```java
 @SpringBootTest
 @Testcontainers
 class MultipleDatasourcesApplicationTests {
@@ -101,7 +101,7 @@ We can frame this as the "programmatic" solution because it relies on certain co
 
 #### Externalized Configuration
 
-```
+```yaml
 # file: application-prog.yaml
 datasources:
   hikari-base:
@@ -122,7 +122,7 @@ datasources:
 
 #### `@Configuration` class
 
-```
+```java
 @Profile("prog")
 @Configuration
 @EnableConfigurationProperties
@@ -179,7 +179,7 @@ This is one of the two solutions based on [YAML anchors](https://support.atlassi
 
 #### Externalized Configuration
 
-```
+```yaml
 # file: application-yaml-simple.yaml
 datasources:
   hikari-base: &hikari-base
@@ -202,7 +202,7 @@ datasources:
 
 #### `@Configuration` class
 
-```
+```java
 @Profile("yaml-simple")
 @Configuration
 @EnableConfigurationProperties
@@ -248,7 +248,7 @@ This is the other solution based on YAML anchors. It comes with a different prop
 
 #### Externalized Configuration
 
-```
+```yaml
 # file: application-yaml-structured.yaml
 datasources:
   hikari-base: &hikari-base
@@ -273,7 +273,7 @@ datasources:
 
 #### `@Configuration` class
 
-```
+```java
 @Profile("yaml-structured")
 @Configuration
 @EnableConfigurationProperties

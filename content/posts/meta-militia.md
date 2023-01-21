@@ -22,24 +22,24 @@ Hint: The instructions assume you already have your domain registered and a Hugo
 Those are the steps needed to make it work:
 
 1. In your DNS provider's (or registrar's) settings add the following *A* records, with the record's _name_ being the apex domain. The IP addresses belong to GitHub Pages (cf. the [GitHub Pages docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)).
-    ```
+    ```txt
     romanboehm.com.	1	IN	A	185.199.111.153
     romanboehm.com.	1	IN	A	185.199.110.153
     romanboehm.com.	1	IN	A	185.199.109.153
     romanboehm.com.	1	IN	A	185.199.108.153
     ```
 2. Then, add the following *CNAME* record.
-    ```
+    ```txt
     www.romanboehm.com.	1	IN	CNAME	rmnbhm.github.io.
     ```
     This will make your page available under the _www_ subdomain, too.
 3. Create a repository on GitHub called _rmnbhm.github.io_. Now, sure you can actually name it however you want, I just follow GitHub Pages' convention here of using _\<username\>.github.io_. Added benefit: Your page will be available under that domain as well!
 4. Navigate to your local git repository for the page's source code and add the remote repository as _origin_: 
-    ```
+    ```sh
     git remote add origin git@github.com:rmnbhm/rmnbhm.github.io.git
     ```
 5. To allow for automatic builds and deployments create a folder in your repository's root called _.github_ which itself contains a folder called _workflows_. The latter then contains a file called _gh-pages.yml_ providing all the GitHub Actions steps to build and deploy the page:
-    ```
+    ```yaml
     # .github/workflows/gh-pages.yml
     name: github pages
 
@@ -75,12 +75,12 @@ Those are the steps needed to make it work:
               publish_dir: ./public
     ``` 
 6. Add a file called _CNAME_ to your _static_ folder. The file contains just the apex domain, like so:
-    ```
+    ```txt
     romanboehm.com
     ```
     This file will get included in your published files upon building the page, as described [here](https://gohugo.io/hosting-and-deployment/hosting-on-github/#use-a-custom-domain).
 7. Push your page's source to GitHub:
-    ```
+    ```sh
     git push origin main
     ```
 8. Navigate to your repository's _Pages_ settings on GitHub. If the initial actions run was succesful you should be able to pick _gh-pages_ as the _Source_ branch. Use _/_ (root) as the desired folder from which GitHub is supposed to source the page's content after a push.

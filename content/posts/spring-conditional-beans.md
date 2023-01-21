@@ -38,7 +38,7 @@ Our solution was to provide data to integration storage by means of **asynchrono
 ### Our Starting Point
 
 The bean dealing with storage access used to be provided by reading the two necessary properties and calling our storage client library's factory method with them:
-```
+```java
 @Configuration
 class StorageConfig {
 
@@ -58,7 +58,7 @@ class StorageConfig {
 
 In order to keep interference to a minimum we provided the mirroring functionality through an additional conditional bean:
 
-```
+```java
 @Configuration
 @ConditionalOnProperty({"${mirroring.storage.env}", "${mirroring.storage.pw}"})
 class MirroringStorageConfig {
@@ -77,7 +77,7 @@ We could've left out the qualifier for the bean, but it made it easier to read a
 
 In order to make mirroring transparent at the call-site we chose to provide our own implementation of `StorageAccess` which delegated its work to the regular storage access implementation for all but one of its operations: Only when calling `save(...)` it would delegate to the regular storage access instance first _and then, asynchronously_, to the mirroring storage access:
 
-```
+```java
 @Component("saveMirroringStorageAccess")
 @ConditionalOnConfiguration(MirroringStorageConfig.class)
 @Primary
@@ -112,7 +112,7 @@ What's neat about that?
 
 To be on the safe side we added a test, making sure the wiring actually worked:
 
-```
+```java
 // Set basic common properties to get application started.
 @TestPropertySource(properties = { accumulator.foo=1, accumulator.bar=2 })
 class StorageAccessTest {
@@ -157,7 +157,7 @@ Yes, it's started full blown contexts and tested implementation details, and yes
 What we've seen above wasn't the whole truth as asynchrony was yet missing from the new implementation. Since Spring has an `@Async` annotation to make classes or methods asynchronous that should be rather succint, yes? Well, _quite_ succint, since proxying forbade us from just annotating the `save` method within `SaveMirroringStorageAccess` -- the async method had to sit in a different class from the call-site.
 We achieved that with a wrapping class:
 
-```
+```java
 @Component
 @ConditionalOnConfiguration(MirroringStorageConfig.class)
 class AsyncMirroringWrapper {
@@ -175,7 +175,7 @@ class AsyncMirroringWrapper {
 
 And injected said wrapper to our _delegating_ `StorageAccess` version instead:
 
-```
+```java
 // ...
 class SaveMirroringStorageAccess implements StorageAccess {
 
@@ -198,7 +198,7 @@ class SaveMirroringStorageAccess implements StorageAccess {
 ```
 Asynchrony might introduce a thousand problems to your code, but in our case the main issue with regards to testing was to make sure the code _did actually run async_ and not block.
 
-```
+```java
 @SpringBootTest(properties = { 
     storage.env=test, 
     storage.pw=mypass,

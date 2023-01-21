@@ -21,7 +21,7 @@ Confluence and Jira, at the least in the versions we use at my work, do not offe
 There's a nice, generic workaround for problems like these: [Bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet). They live as bookmarks in your browser, but you can see them as buttons being able to execute JavaScript on click.
 
 The lack-of-monospace-formatting-shortcut problem could be solved for both Jira and Confluence with a bookmarklet executing the following code:
-```
+```javascript
 javascript:$("#rte-monospace, a[data-operation='monospace-inline']").click();
 ```
 This is jQuery, with the selectors for the `click` function picking up either the id of the "monospace" entry in the formatting dropdown of Confluence's editor -- `#rte-monospace`. Or, for Jira, a link with the specific attribute-value-combo of `data-operation='monospace-inline'`. (Actually the JavaScript snippet will emit click events for both, but both elements will never appear on the same page.)

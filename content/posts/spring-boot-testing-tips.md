@@ -23,7 +23,7 @@ Here are two means to achieve that goal:
 
 I often use this one to re-configure beans for a single testsuite only. Like so:
 
-```
+```java
 @DataJpaTest
 class StatementCountTest {
 
@@ -75,9 +75,8 @@ Even though it may seem counter-intuitive at first, try using `@SpringBootTest` 
 
 If you've never heard of it: [Testcontainers](https://www.testcontainers.org/) provides a truly extraordinary library to run your tests against "real" infrastructure. Your database in your test will be on-par feature-wise with your production database because _it's the same database_ (only running within a Docker container), your Kafka cluster won't be some half-assed in-house in-memory implementation, it'll be the real deal.
 I use their Postgres container for my [showcase application](https://github.com/rmnbhm/wichtelnng) and it's just a single line to have an actual Postgres database available for my `@SpringBootTest`s:
-```
+```properties
 # In src/test/resources/config/application.properties
-...
 spring.datasource.url=jdbc:tc:postgresql:latest:///postgres?TC_DAEMON=true
 ```
 No configuration needed in the tests themselves! Also note the `?TC_DAEMON=true`. This will keep the container running even without open connections to the database, meaning it'll be available super quickly for the next test.

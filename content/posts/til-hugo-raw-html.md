@@ -16,7 +16,7 @@ draft = false
 
 I want the link to this blog in my Mastodon profile to be ["verified" (green) link](https://snyk.io/blog/verify-and-secure-your-mastodon-account/). This is done by adding a custom anchor element somewhere on the site: 
 
-```
+```html
 <a rel='me' href='https://mastodon.social/@romanboehm'>Mastodon</a>
 ```
 
@@ -33,7 +33,7 @@ If you don't like to activate the [renderer's unsafe mode](https://gohugo.io/get
 
 Or, for the case of adding the "verifiable" link:
 
-```
+```markdown
 {{</* rawhtml >}}<a rel='me' href='https://mastodon.social/@romanboehm'>Mastodon</a>{{< /rawhtml */>}}
 ```
 

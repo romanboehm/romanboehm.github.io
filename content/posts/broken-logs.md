@@ -31,7 +31,7 @@ Logging in 2021 is quite the complicated matter, especially so in Java world whe
 End of 2021 our operations team approached us with a ticket detailing how we're sending them broken log events. This should not have happened. (Of course it shouldn't.) But it especially should not have happened right then because we had just recently completely revised and vetted our logging stack in order to actually send the logs to the ops team's ELK stack instead of our own one (that we can now get rid of). After a transitional period we were pretty sure all our logs were fine for downstream consumption. (Meaning: There had been a few "Your logs are broken _again_, folks"-tickets until mid December.)
 
 The log event in question was emitted by an old Java application that is due for sunset in the first quarter of 2022 (fingers crossed). The event was fine expcept for its message which looked like this from ops team's end:
-```
+```txt
 [2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}]\njava.lang.NullPointerException\nat com.company.MyClass.myMethod(MyClass.java:107)\nat ... \nat com.company.App.main(App.java:199)
 ```
 (Simplified, yet still as ugly as the original one)
@@ -45,7 +45,7 @@ If I haven't really got a clue I like to first check off the so-called _low hang
 Fortunately, I could just `rsync` the actual logfile from the server the app is running on and look at the log message's context: Was there another log message directly before the one we were supplied in the ticket that, when combined, makes for the full message which should not have been split up in the first place?
 
 This is what I got from the server:
-```
+```txt
 [2021-12-16 07:55:02,123] [INFO] [com.company.MyOtherClass] [{id,12345}}] I am an unrelated message, not helpful to solving the problem at hand.
 [2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}]
 java.lang.NullPointerException
@@ -58,7 +58,7 @@ No matching event right before, or even in the the last n events before the one 
 
 Now at this point in time, there was little reason to venture deep into the appender code assuming the appender is doing its appending incorrectly. That would be digging up potatoes from frozen ground instead of picking off the delicious low hanging cherries. Instead I moved on to the next easy task to check off our list: Producing the logs locally in order to verify whether the application itself messed up the logs somehow. In my local stdout, the logs are similar if not completely the same, though (note the whitespace):
 
-```
+```txt
 [2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}] 
     java.lang.NullPointerException
     at com.company.MyClass.myMethod(MyClass.java:107)
@@ -75,7 +75,7 @@ I was still puzzled, however, by the log message itself. It just looks really wo
 ### Digging Deeper
 Since we're in the IDE already, why not actually look at the code that caused the log statement: A `LOGGER.warn(e.getMessage(), e)` invocation in a `catch`-block. On the surface a piece of old code, nothing too eyebrow-raising about it. (Yes, I'm aware of _warning_ about an exception, it actually makes sense here, okay!?) Nowadays however we'd probably write it like this:
 
-```
+```java
 try {
     theThing();
 } catch (Exception e) {
@@ -110,7 +110,7 @@ I chose to probe into the second link first because that was the easiest check t
 ### Et tu, Filus Beatus?
 
 So I _did a Docker_ (hope that settles as a figure of speech) with a Filebeat config similar to the server's one and that essentially comes down to this:
-```
+```yaml
 filebeat.inputs:
   - type: log
     paths:
@@ -131,7 +131,7 @@ output.console:
 ```
 
 First I put the abridged logfile content from the server directly into Filebeat's input, the broken.log file. The result was _drumroll_ ... _more drumdroll_:
-```
+```json
 {
   // lots of metadata
   "message": "[2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}]\njava.lang.NullPointerException\nat com.company.MyClass.myMethod(MyClass.java:107)\nat ... \nat com.company.App.main(App.java:199)",
@@ -139,7 +139,7 @@ First I put the abridged logfile content from the server directly into Filebeat'
 }
 ```
 Ha! Naughty naughty, Mr. Filebeat, making a mess of our logs like that. I was happy I had finally reproduced the behaviour.But, for good measure, since I took the time of setting the little experiment up so nicely, I ran another one. This time I used the application's logs as input. And THE LOG MESSAGE COMES OUT JUST FINE:
-```
+```json
 {
   ...
   "message": "[2021-12-16 07:56:51,362] [WARN] [com.company.MyClass] [{id,12345}}] \njava.lang.NullPointerException\nat com.company.MyClass.myMethod(MyClass.java:107)\nat ... \nat com.company.App.main(App.java:199)",
