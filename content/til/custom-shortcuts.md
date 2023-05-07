@@ -1,16 +1,14 @@
-+++
-title = "Custom Shortcuts For Any Web Editor"
-date = "2022-09-17"
-tags = [
-    "TIL",
-    "jira",
-    "confluence",
-    "chrome",
-    "firefox"
-]
-toc = true
-draft = false
-+++
+---
+title: "Custom Shortcuts For Any Web Editor"
+date: 2022-09-17
+tags:
+  - jira
+  - confluence
+  - chrome
+  - firefox
+toc: true
+draft: false
+---
 
 ## Problem
 

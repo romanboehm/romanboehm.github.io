@@ -1,14 +1,13 @@
-+++
-title = "How to: Configure Multiple DataSources in Spring Boot"
-date = "2022-08-16"
-tags = [
-    "spring-boot",
-    "spring",
-    "hikari"
-]
-draft = false
-toc = true
-+++
+---
+title: "How to: Configure Multiple DataSources in Spring Boot"
+date: 2022-08-16
+tags:
+  - spring-boot
+  - spring
+  - hikari
+draft: false
+toc: true
+---
 
 
 ## Introduction

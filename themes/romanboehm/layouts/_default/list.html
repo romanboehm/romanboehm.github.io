@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title | markdownify }}</h1>
+
+{{ .Content }}
+
+<ul>
+  {{ range .Pages }}
+  <li>
+    {{ with .Params.date }}
+    {{ .Format "2006-01-02" }}
+    {{ end }}
+    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ end }}

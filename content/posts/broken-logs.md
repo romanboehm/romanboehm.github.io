@@ -1,13 +1,12 @@
-+++
-title = "Harry Logger and the Message with the Garbled Pattern"
-date = "2022-01-12"
-tags = [
-    "logging",
-    "infrastructure"
-]
-draft = false
-toc = true
-+++
+---
+title: "Harry Logger and the Message with the Garbled Pattern"
+date: 2022-01-12
+tags: 
+  - logging
+  - infrastructure
+draft: false
+toc: true
+---
 
 ## Introduction
 

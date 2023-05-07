@@ -1,12 +1,10 @@
-+++
-title = "Ubuntu and Nvidia Optimus"
-date = "2021-09-06"
-tags = [
-    "TIL",
-    "linux"
-]
-draft = false
-+++
+---
+title: "Ubuntu and Nvidia Optimus"
+date: 2021-09-06
+tags: 
+  - linux
+draft: false
+---
 
 How to: Make Nvidia Optimus work after installing Ubuntu 21.04.
 

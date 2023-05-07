@@ -1,14 +1,13 @@
-+++
-title = "How to: Distribute a Java Source File on GitHub"
-date = "2023-01-08"
-tags = [
-    "github",
-    "distribution",
-    "release"
-]
-draft = false
-toc = true
-+++
+---
+title: "How to: Distribute a Java Source File on GitHub"
+date: 2023-01-08
+tags:
+  - github
+  - distribution
+  - release
+draft: false
+toc: true
+---
 
 ## Update 2023-04-18
 The below post is relevant anymore only for historic reasons. Contrary to my statement below, JReleaser does indeed offer the possibility to [distribute source files](https://fosstodon.org/@jreleaser/109676555681811519). In combination with Maven Release plugin, I was able to standardize the whole workflow, which made distributing `JsonWheel.java` and upgrading versions much easier.

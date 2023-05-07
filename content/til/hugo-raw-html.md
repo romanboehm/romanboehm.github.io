@@ -1,16 +1,14 @@
-+++
-title = "Use Raw HTML in Hugo's Markdown"
-date = "2023-01-02"
-tags = [
-    "TIL",
-    "hugo",
-    "blogmeta",
-    "markdown",
-    "html"
-]
-toc = true
-draft = false
-+++
+---
+title: "Use Raw HTML in Hugo's Markdown"
+date: 2023-01-02
+tags:
+  - hugo
+  - blogmeta
+  - markdown
+  - html
+toc: true
+draft: false
+---
 
 ## Problem
 

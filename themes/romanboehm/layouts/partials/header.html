@@ -1,0 +1,11 @@
+{{ define "header" }}
+<nav>
+    <h1>{{ .Site.Title }}</h1>
+    <img src="/images/profile.jpg" alt="Profile picture" />
+    <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+{{ end }}

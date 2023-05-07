@@ -1,14 +1,13 @@
-+++
-title = "Keep Your Properties Close, but Your @TestConfiguration Closer - Selected Spring Boot Testing Tips"
-date = "2021-10-02"
-tags = [
-    "spring-boot",
-    "spring",
-    "testing"
-]
-draft = false
-toc = true
-+++
+---
+title: "Keep Your Properties Close, but Your @TestConfiguration Closer - Selected Spring Boot Testing Tips"
+date: 2021-10-02
+tags:
+  - spring-boot
+  - spring
+  - testing
+draft: false
+toc: true
+---
 
 ##  Introduction
 

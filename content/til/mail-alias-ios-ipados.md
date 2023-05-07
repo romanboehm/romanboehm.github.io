@@ -1,15 +1,13 @@
-+++
-title = "Using Third Party Email Aliases With iCloud Mail on iOS/iPadOS"
-date = "2022-09-07"
-tags = [
-    "TIL",
-    "ios",
-    "ipados",
-    "icloud"
-]
-draft = false
-toc = true
-+++
+---
+title: "Using Third Party Email Aliases With iCloud Mail on iOS/iPadOS"
+date: 2022-09-07
+tags:
+  - ios
+  - ipados
+  - icloud
+draft: false
+toc: true
+---
 
 How to: Use Third Party Email Aliases With iCloud Mail on iOS/iPadOS
 

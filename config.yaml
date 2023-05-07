@@ -1,11 +1,7 @@
 baseurl: "/"
 languageCode: "en-us"
-title: "Roman Böhm's Website"
-theme: "hugo-xmin"
-googleAnalytics: ""
-disqusShortname: ""
-ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
-footnotereturnlinkcontents: "↩"
+title: "Roman Böhm"
+theme: "romanboehm"
 
 menu:
   main:
@@ -16,14 +12,13 @@ menu:
       url: "posts/"
       weight: 2
     - name: TIL
-      url: "/tags/til/"
+      url: "/til/"
       weight: 3
     - name: Tags
       url: "tags/"
       weight: 4
 
 params:
-  description: "Website of Roman Böhm"
   footer: "&copy; Roman Böhm 2021 - {Year} -- [Github](https://github.com/romanboehm) -- {{< rawhtml >}}<a rel='me' href='https://mastodon.social/@romanboehm'>Mastodon</a>{{< /rawhtml >}} -- [LinkedIn](https://www.linkedin.com/in/🖥%EF%B8%8F-roman-böhm-837946175/)"
 
 markup:
