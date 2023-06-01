@@ -2,4 +2,4 @@
 title: Tags
 ---
 
-All tags used throughout my posts.
+All tags used throughout my content.
