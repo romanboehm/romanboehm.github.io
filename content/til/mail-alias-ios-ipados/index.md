@@ -31,21 +31,21 @@ Forward mail from \<mail\>@\<thirdpartyemailaddress\>.\<tld\> to \<mail\>@\<iclo
 
 ## 1. Add Your Third Party Account to Mail
 
-![iOS Screenshots 1-3 showing how to add your third party account to Apple's Mail app on iOS](/images/til-mail-alias-ios-ipados/setup-01.png)
+![iOS Screenshots 1-3 showing how to add your third party account to Apple's Mail app on iOS](setup-01.png)
 
 Set up the account as _other_ (2) and choose _mail account_ (3) as the account's type.
 
-![iOS Screenshots 4-6 showing how to add your third party account to Apple's Mail app on iOS](/images/til-mail-alias-ios-ipados/setup-02.png)
+![iOS Screenshots 4-6 showing how to add your third party account to Apple's Mail app on iOS](setup-02.png)
 
 Enter your account data including credentials (4). When it comes to the mail server settings (5), choose a dummy for the server handling incoming mail, and your actual mail server for outgoing mail (SMTP). Be sure to pick _POP_/POP3 as the protocol. The latter is for preventing the mail client to try and fetch server-side settings (e.g. folders) for incoming mail. Then confirm.
 
-![iOS Screenshots 7-9 showing how to add your third party account to Apple's Mail app on iOS](/images/til-mail-alias-ios-ipados/setup-03.png)
+![iOS Screenshots 7-9 showing how to add your third party account to Apple's Mail app on iOS](setup-03.png)
 
 It's going to take a while, then complain about SSL (7). In the popup, do _not_ try to setup the account without SSL, i.e. press _No_ ("Nein") so you'll still use SSL and server port 587 to send mails. It's going to take another while, then present you with an overview (8) which you'll confirm with _Save_ ("Sichern"). Discard the popup warning you about possible problems with the account (9) by hitting _Save_ ("Sichern") again.
 
 ## 2. Adjust Fetch Settings for the New Account
 
-![iOS Screenshots 1 and 2 showing how to setup fetch settings for the dummy POP3 server](/images/til-mail-alias-ios-ipados/fetch.png)
+![iOS Screenshots 1 and 2 showing how to setup fetch settings for the dummy POP3 server](fetch.png)
 
 Pick the third party account (1) and set the fetch schedule to _manual_ (2; "Manuell"). Then make sure _manual_ is also selected for non-push schedules (1). These settings will prevent the mail app from trying to fetch mail from your dummy POP3 server.
 

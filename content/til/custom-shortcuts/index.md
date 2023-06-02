@@ -40,7 +40,7 @@ Chrome et. al. don't allow custom shortcuts for bookmarks, but they offer the po
 
 Mine looks like so:
 
-![Configuration of custom shortcuts in Chromium-based browsers](/images/til-custom-shortcuts/chrome-custom-search-engine.png)
+![Configuration of custom shortcuts in Chromium-based browsers](chrome-custom-search-engine.png)
 
 In order to apply the formatting, I press 
 

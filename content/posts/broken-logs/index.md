@@ -97,7 +97,7 @@ I had now arrived at a stage where I had exhausted both all the easy-to-think-of
 
 In our case, the Java app is a simple jar invoked from a systemd service on a Linux system. This service's logs are collected from stdout by journald, then appended to the actual logfile. Filebeat picks up the logfile's changes and sends them off to the ops team. Rather convoluted, I know, but it works pretty reliably. And no, we wouldn't build it like this again. We'd write it in Go, then rewrite it in Rust, then put all our logs on the blockchain, and then, after the Great Cloud Collapse of 2030, we'd think using a plain Linux VM and systemd wasn't so bad, after all, and revert it to the current state. (Barring the fact that we now might know of a [journald input plugin for Filebeat](https://www.elastic.co/guide/en/beats/filebeat/7.16/filebeat-input-journald.html).)
 
-![Diagram (non-standardized) of the logging infrastructure in question](/images/broken-logs/infra.svg)
+![Diagram (non-standardized) of the logging infrastructure in question](infra.svg)
 
 There are three major links where things could go awry: 
 1. The one between the application resp. the systemd service and the log file, 
@@ -157,7 +157,7 @@ And what was the difference again between those two message sources? Lots of pre
 
 And who raked all the whitespace to themselves?
 
-![Scooby Doo "Mask" Meme with Filebeat and journald](/images/broken-logs/scooby.jpg)
+![Scooby Doo "Mask" Meme with Filebeat and journald](scooby.jpg)
 
 ("If it wasn't for you meddling kids I'd have garbled the logs forever!")
 

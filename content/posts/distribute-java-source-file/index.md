@@ -135,7 +135,7 @@ When it does run, it downloads the previously uploaded file and hands it over to
 
 The `action-gh-release` ([GitHub](https://github.com/softprops/action-gh-release/)) then takes care of creating a release, converting the commit messages to a changelog and placing the source file there.
 
-![GitHub's release page for JSON Wheel showing release 1.3.1](/images/distribute-java-source-file/release.png)
+![GitHub's release page for JSON Wheel showing release 1.3.1](release.png)
 
 ## Next Step
 
