@@ -22,4 +22,3 @@ params:
 permalinks:
   posts: /posts/:title/
 title: "Roman Böhm"
-theme: "romanboehm"
