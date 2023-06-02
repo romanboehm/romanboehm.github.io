@@ -5,7 +5,6 @@ tags:
   - logging
   - infrastructure
 draft: false
-toc: true
 ---
 
 ## Introduction

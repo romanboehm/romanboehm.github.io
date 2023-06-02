@@ -6,7 +6,6 @@ tags:
   - confluence
   - chrome
   - firefox
-toc: true
 draft: false
 ---
 

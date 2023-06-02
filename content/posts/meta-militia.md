@@ -5,7 +5,6 @@ tags:
   - dns
   - blogmeta
 draft: false
-toc: true
 ---
 
 How to: Using a custom domain (apex domain and _www_ subdomain) for a Hugo-generated page hosted on GitHub Pages.

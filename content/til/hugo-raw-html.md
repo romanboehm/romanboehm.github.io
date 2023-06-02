@@ -6,7 +6,6 @@ tags:
   - blogmeta
   - markdown
   - html
-toc: true
 draft: false
 ---
 

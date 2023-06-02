@@ -7,7 +7,6 @@ tags:
   - testing
   - dependencyinjection
 draft: false
-toc: true
 ---
 
 ## Introduction
