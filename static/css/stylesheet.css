@@ -1,0 +1,22 @@
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.menu {
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,6 +1,12 @@
 {{ define "head" }}
+
 <meta charset="utf-8">
-<title>{{ block "title" . }}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href='{{ absURL "css/stylesheet.css" }}' rel="stylesheet" />
+<title>
+    {{ block "title" . }}
     {{ .Site.Title }} - {{ .Title }}
-    {{ end }}</title>
+    {{ end }}
+</title>
+
 {{ end }}

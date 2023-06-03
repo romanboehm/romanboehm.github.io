@@ -1,10 +1,9 @@
 {{ define "main" }}
 
-<h1>{{ .Title | markdownify }}</h1>
+<h1>{{ .Params.title | markdownify }}</h1>
 <h2>{{ .Params.date.Format "2006-01-02" }}</h2>
 
 {{ with .Params.tags }}
-<b>Tags:</b>
 {{ range . }}
 <b><a href="/tags/{{ . }}">{{ . }}</a></b>
 {{ end }}
