@@ -17,6 +17,10 @@ pre {
   display: inline-block;
 }
 
+.menu li a {
+  margin-right: 0.5em;
+}
+
 img {
   max-width: 100%;
 }
