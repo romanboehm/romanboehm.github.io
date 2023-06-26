@@ -58,7 +58,7 @@ In order to keep interference to a minimum we provided the mirroring functionali
 
 ```java
 @Configuration
-@ConditionalOnProperty({"${mirroring.storage.env}", "${mirroring.storage.pw}"})
+@ConditionalOnProperty({"mirroring.storage.env", "mirroring.storage.pw"})
 class MirroringStorageConfig {
     
     @Bean("mirroringStorageAccess")
@@ -112,7 +112,7 @@ To be on the safe side we added a test, making sure the wiring actually worked:
 
 ```java
 // Set basic common properties to get application started.
-@TestPropertySource(properties = { accumulator.foo=1, accumulator.bar=2 })
+@TestPropertySource(properties = { "accumulator.foo=1", "accumulator.bar=2" })
 class StorageAccessTest {
 
     @Nested
@@ -130,10 +130,10 @@ class StorageAccessTest {
 
     @Nested
     @SpringBootTest(properties = { 
-        storage.env=test, 
-        storage.pw=mypass,
-        mirroring.storage.env=mirror,
-        mirroring.storage.pw=mymirrorpass
+        "storage.env=test", 
+        "storage.pw=mypass",
+        "mirroring.storage.env=mirror",
+        "mirroring.storage.pw=mymirrorpass"
     })
     class MirrorStorageAccess {
 
@@ -198,10 +198,10 @@ Asynchrony might introduce a thousand problems to your code, but in our case the
 
 ```java
 @SpringBootTest(properties = { 
-    storage.env=test, 
-    storage.pw=mypass,
-    mirroring.storage.env=mirror,
-    mirroring.storage.pw=mymirrorpass,
+    "storage.env=test", 
+    "storage.pw=mypass",
+    "mirroring.storage.env=mirror",
+    "mirroring.storage.pw=mymirrorpass",
     // other props
 })
 @AutoConfigureMockMvc
