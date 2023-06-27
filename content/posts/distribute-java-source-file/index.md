@@ -9,7 +9,7 @@ draft: false
 ---
 
 ## Update 2023-04-18
-The below post is relevant anymore only for historic reasons. Contrary to my statement below, JReleaser does indeed offer the possibility to [distribute source files](https://fosstodon.org/@jreleaser/109676555681811519). In combination with Maven Release plugin, I was able to standardize the whole workflow, which made distributing `JsonWheel.java` and upgrading versions much easier.
+The below post is relevant anymore only for historic reasons. Contrary to my statement below, JReleaser does indeed offer the possibility to [distribute source files](https://fosstodon.org/@jreleaser/109676555681811519), basically in a [single line](https://github.com/romanboehm/jsonwheel/blob/main/pom.xml#L170). In combination with the Maven Release plugin, I was able to standardize the whole workflow, which made distributing `JsonWheel.java` and upgrading versions much easier.
 
 ## Introduction
 
