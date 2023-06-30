@@ -28,7 +28,9 @@ The private key is secured by a passphrase.
 
 ### MacOS Keychain and SSH Agent
 
-This will allow us to skip entering the passphrase when using the private key. First, we add the private key to MacOS' keychain (a.k.a. _Keychain Access.app_):
+Your OS's SSH Agent is automatically being forwarded (for lack of a better word) to the Devcontainer. Now, integrating the Mac OS keychain and the SSH Agent will allow us to skip entering the passphrase when using the private key. 
+
+First, we need to add the private key to MacOS' keychain (a.k.a. _Keychain Access.app_):
 
 ```shell
 ssh-add --apple-use-keychain ~/.ssh/id-github-ed25519
@@ -42,7 +44,7 @@ This step will do two things: It will
 
 The latter means it will also unlock your key automatically once you successfully logged in your operating system user.
 
-Unfortunately, this command does not persist accross reboots. So, secondly, help the SSH Agent by adding the following line to your \.(zsh|bash|...)rc file:
+Unfortunately, this command does not persist accross reboots. So, secondly, we need to help the SSH Agent by adding the following line to your `.zshrc` or `.bashrc` or whatever-is-doing-bootstrapping file:
 
 ```shell
 ssh-add --apple-load-keychain &> /dev/null
@@ -52,5 +54,5 @@ ssh-add --apple-load-keychain &> /dev/null
 
 With this setup, there's _nothing_ left to configure in VS Code itself, esp. in your `devcontainer.json` config file. Open the folder in your container and interact with whatever remote destination your SSH key is designated for. In my case, I can pull/push to GitHub.
 
-Note: You might want to move the `ssh-add ...` commands into `devcontainer.json`'s `"initializeCommand"` option. I didn't want to do that, however, since it would make my container very much Apple-specific. With all my Devcontainers, I very much expect the OS setup to make the necessary SSH keys available to the "OS-agnostic" SSH Agent abstraction, which, in turn, automatically gets forwarded to the container when using Devcontainer's default setup.
+Note: You might want to move the `ssh-add ...` commands into `devcontainer.json`'s `"initializeCommand"` option. I didn't want to do that, however, since it would make my container very much Apple-specific. With all my Devcontainers, I very much expect to have whatever I'm using configured to make the necessary SSH keys available to the "OS-agnostic" SSH Agent abstraction, which, as mentioned above, automatically gets forwarded to the container when using Devcontainer's default setup.
 
