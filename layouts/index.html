@@ -2,4 +2,15 @@
   
 {{ .Content }}
 
+Most recent content:
+
+<ul>
+    {{ range first 5 .Site.RegularPages }}
+    <li>
+      {{ .Params.date.Format "2006-01-02" }}
+      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+    {{ end }}
+  </ul>
+
 {{ end }}
