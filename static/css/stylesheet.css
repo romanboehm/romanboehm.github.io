@@ -15,9 +15,6 @@ pre {
 
 .menu li {
   display: inline-block;
-}
-
-.menu li a {
   margin-right: 0.5em;
 }
 
