@@ -21,3 +21,8 @@ pre {
 img {
   max-width: 100%;
 }
+
+.profile-picture {
+  max-width: 20em;
+  float: right;
+}
