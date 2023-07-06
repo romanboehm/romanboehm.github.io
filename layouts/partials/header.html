@@ -6,7 +6,7 @@
         {{ range .Site.Menus.main }}
         <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
         {{ end }}
-        <li><a href='{{ absURL "index.xml" }}'><img src='{{ absURL "images/rss.svg" }}' alt="RSS icon" width="14em"/></a></li>
+        <li><a href="index.xml"><img src="/images/rss.svg" alt="RSS icon" width="14em"/></a></li>
     </ul>
     
 </nav>
