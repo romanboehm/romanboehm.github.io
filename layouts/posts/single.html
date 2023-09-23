@@ -13,4 +13,8 @@
 
 {{ .Content }}
 
+{{ with .Params.tootId }}
+<mastodon-comments host="{{ site.Params.mastodonHost }}" user="{{ site.Params.mastodonUser }}" tootId="{{ . }}"></mastodon-comments>
+{{ end }}
+
 {{ end }}
