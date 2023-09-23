@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+{{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 <link href="/css/stylesheet.css" rel="stylesheet" />
 {{ with .Params.tootId }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js" integrity="sha512-KqUc2WMPF/gxte9xVjVE4TIt1LMUTidO3BrcItFg0Ro24I7pGNzgcXdnWdezNY+8T0/JEmdC79MuwYn+8UdOqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
