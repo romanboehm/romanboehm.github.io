@@ -1,0 +1,28 @@
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.menu {
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.profile-picture {
+  max-width: 20em;
+  float: right;
+}
