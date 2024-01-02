@@ -1,7 +1,11 @@
 {{ define "main" }}
 
+{{ $date := .Params.date.Format "2006-01-02" }}
+{{ $lastmod := .Lastmod.Format "2006-01-02" }}
+
 <h1>{{ .Params.title | markdownify }}</h1>
-<h2>{{ .Params.date.Format "2006-01-02" }}</h2>
+<h2>{{ $date }}</h2>
+<h4>{{ if ne $date $lastmod }} Last edit: {{ $lastmod }} {{ end }}</h4>
 
 {{ with .Params.tags }}
 {{ range . }}

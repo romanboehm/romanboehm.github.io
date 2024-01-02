@@ -1,5 +1,6 @@
 baseurl: "/"
 languageCode: "en-us"
+enableGitInfo: true
 markup:
   highlight:
     codeFences: true
