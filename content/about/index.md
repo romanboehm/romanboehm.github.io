@@ -13,8 +13,9 @@ In 2022, Roman moved on to be a Senior Software Engineer, as of 2023 Technical L
 Roman's side projects include
 
 - [JSON Wheel](https://github.com/romanboehm/jsonwheel): a tiny, hackable JSON deserializer for the JVM
+- [wichtelnng](https://wichtelnng.romanboehm/wichtelnng), a secret santa tech demo showing off recent Java and Spring Boot
 - [dupleasure](https://dupleasure.romanboehm.com), a web application to reorder PDF docs as if they'd been duplex scanned
-- [wichtelnng](https://github.com/romanboehm/wichtelnng), a secret santa tech demo showing off recent Java and Spring Boot
+- [ocrical](https://ocrical.romanboehm.com/): have an LLM run OCR on an image/PDF and generate an iCal file from the schedule-related data
 
 You can find Roman here, too:
 
