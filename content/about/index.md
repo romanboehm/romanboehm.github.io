@@ -19,6 +19,7 @@ Roman's side projects include
 
 You can find Roman here, too:
 
+- [@romanboehm.com](https://bsky.app/profile/romanboehm.com) on Bluesky
 - [@romanboehm@mastodon.social](https://mastodon.social/@romanboehm) on Mastodon
 - [romanboehm](https://github.com/romanboehm) on GitHub
 - [Roman Böhm](https://www.linkedin.com/in/🖥%EF%B8%8F-roman-böhm-837946175/) on LinkedIn
