@@ -22,7 +22,7 @@ menu:
       url: "about/"
       weight: 5
 params:
-  footer: "&copy; Roman Böhm 2021 - {Year} -- [Github](https://github.com/romanboehm) -- {{< rawhtml >}}<a rel='me' href='https://mastodon.social/@romanboehm'>Mastodon</a>{{< /rawhtml >}} -- [LinkedIn](https://www.linkedin.com/in/🖥%EF%B8%8F-roman-böhm-837946175/)"
+  footer: "&copy; Roman Böhm 2021 - {Year} -- [Github](https://github.com/romanboehm) -- [Bluesky](https://bsky.app/profile/romanboehm.com) -- {{< rawhtml >}}<a rel='me' href='https://mastodon.social/@romanboehm'>Mastodon</a>{{< /rawhtml >}} -- [LinkedIn](https://www.linkedin.com/in/romanboehm87)"
   description: "Personal website of Roman Böhm. Includes blog posts, shorter 'Today I learned' posts, and various personal information."
   mastodonHost: "mastodon.social"
   mastodonUser: "romanboehm"
