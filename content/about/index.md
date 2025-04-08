@@ -15,8 +15,6 @@ Roman's side projects include
 - [JSON Wheel](https://github.com/romanboehm/jsonwheel): a tiny, hackable JSON deserializer for the JVM
 - [wichtelnng](https://wichtelnng.romanboehm.com), a secret santa tech demo showing off recent Java and Spring Boot
 - [dupleasure](https://dupleasure.romanboehm.com), a web application to reorder PDF docs as if they'd been duplex scanned
-- [ocrical](https://ocrical.romanboehm.com/): have an LLM run OCR on an image/PDF and generate an iCal file from the schedule-related data
-- [pxmm](https://pxmm.romanboehm.com/), a tiny page to convert from pixels to mm and vice-versa, allowing for a custom DPI value.
 
 You can find Roman here, too:
 
