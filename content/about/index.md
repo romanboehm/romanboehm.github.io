@@ -6,9 +6,9 @@ title: About Roman Böhm
 
 Roman Böhm is a software engineer living in Würzburg, Germany. He is mostly interested in Java, the JVM, the Spring framework, RDBMs, and producing boring yet stable software.
 
-After finishing his B. Eng. in Computer Science at THWS Würzburg in 2019 with distinction, he went on to work for Flyeralarm GmbH Würzburg where he sped up a distributed system guiding several thousand orders a day into print.
+As of 2025, Roman is working at [Scalable Capital](https://scalable.capital).
 
-In 2022, Roman moved on to be a Senior Software Engineer, as of 2023 Technical Lead, for sprd.net AG Leipzig. There, he's carefully tuning and crafting services to make sure the company's collection of millions of images is being served and updated without a hiccup.
+Previously, he worked at Flyeralarm and Spread Group.
 
 Roman's side projects include
 
